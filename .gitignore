@@ -40,8 +40,4 @@ next-env.d.ts
 /.idea
 
 #env
-<<<<<<< HEAD
 .env
-=======
-.env
->>>>>>> b5bad42169bf879fe56a77fe8ed783bdc609f280

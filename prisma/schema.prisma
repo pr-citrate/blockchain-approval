@@ -17,17 +17,16 @@ model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
   name      String?
+  role      String   @default("USER")
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 model Block {
-  version      String
   index        Int      @id @default(autoincrement())
   previousHash String
   merkleRoot   String
   timestamp    DateTime
   bits         Int
   nonce        Int
-  body         String
+  body         Json
 }

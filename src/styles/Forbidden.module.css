@@ -1,0 +1,29 @@
+.forbidden {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121213;
+    flex-direction: column;
+}
+
+.forbidden h1 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.forbiddenBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: #f2f2f2;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.forbiddenBtn:hover {
+    background-color: #c0c0c0;
+}

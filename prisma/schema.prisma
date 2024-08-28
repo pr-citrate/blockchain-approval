@@ -19,14 +19,35 @@ model User {
   name      String?
   role      String   @default("USER")
   createdAt DateTime @default(now())
+  groups    Group[]  @relation("UserGroups")
+  logs      Log[]
+  Group     Group[]
 }
 
 model Block {
   index        Int      @id @default(autoincrement())
   previousHash String
   merkleRoot   String
-  timestamp    DateTime
+  timestamp    DateTime @default(now())
   bits         Int
   nonce        Int
   body         Json
+}
+
+model Group {
+  id      Int    @id @default(autoincrement())
+  name    String
+  code    String
+  users   User[] @relation("UserGroups")
+  admin   User   @relation(fields: [adminId], references: [id])
+  adminId Int
+}
+
+model Log {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  approved  Boolean  @default(false)
+  timestamp DateTime @default(now())
+  file      String
 }

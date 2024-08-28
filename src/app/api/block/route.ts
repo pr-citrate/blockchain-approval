@@ -22,7 +22,6 @@ export async function POST(req: Request): Promise<NextResponse> {
     console.log(data)
     const result: Block = await prisma.block.create({
         data: {
-            version: getVersion(),
             previousHash: createHash(prevBlock),
             merkleRoot: tree.root() || '0'.repeat(64),
             timestamp: new Date(),
